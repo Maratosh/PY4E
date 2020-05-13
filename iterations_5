@@ -1,0 +1,7 @@
+def exercise():
+    num = input("Enter a number: ")
+    count = 0
+    total = 0
+    while True:
+        
+        
