@@ -1,7 +1,18 @@
 def exercise():
-    num = input("Enter a number: ")
     count = 0
-    total = 0
+    tot = 0.0
     while True:
+        snum = input('Enter a number: ')
+        if snum == 'done':
+            break
+        else:
+            try:
+                fnum = float(snum)
+            except:
+                print('Invalid input')
+                continue
+            count += 1
+            tot = tot + fnum
+    print(tot,count,tot/count)
         
         
