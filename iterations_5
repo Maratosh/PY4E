@@ -14,5 +14,11 @@ def exercise():
             count += 1
             tot = tot + fnum
     print(tot,count,tot/count)
-        
+    _____________________________________________
+    def min(values):
+    smallest = None
+    for value in values:
+        if smallest is None or value < smallest:
+            smallest = value
+    return smallest
         
