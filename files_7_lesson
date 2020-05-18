@@ -66,5 +66,25 @@ for line in fhand:
         print(line)
         count += 1
 print('There were {} {} lines in the {} file'.format(count, search, fname))
+###############################
+# Writing in the file!!!
+#!/usr/bin/python3
 
-        
+fname = input('Enter the file name: ')
+fhand = open(fname)
+fout = open('out.txt', 'w')
+count = 0
+for line in fhand:
+    line = line.rstrip()
+    if not line.startswith('From:'):
+        continue
+    count +=1
+    #print('{}, {}'.format(line, count))
+    fout.write('{}, {}\n'.format(line, count))
+print(fout)
+fout.close()
+fhand = open('out.txt')
+for line in fhand:
+    line = line.rstrip()
+    print(line)
+
