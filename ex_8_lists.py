@@ -58,7 +58,24 @@ for line in open('mbox-short.txt'):
     if not line.startswith('From'): continue
     line = line.split()
     print(line.pop(1))
-#
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+'''Rewrite the program that prompts the user for a list of numbers
+and prints out the maximum and minimum of the numbers at the end when
+the user enters “done”. Write the program to store the numbers the user
+enters in a list and use the max() and min() functions to compute the
+maximum and minimum numbers after the loop completes.'''
+lst = []
+while True:
+    num = input('Enter a number, "done" to quit: ')
+    if num == 'done': break
+    try:
+        num = float(num)
+    except:
+        print('Enter a numeric symbol')
+        continue
+    lst.append(num)
+print(lst)
+print(max(lst), min(lst))
 
         
     
