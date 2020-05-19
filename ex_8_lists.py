@@ -16,5 +16,14 @@ for line in fhand:
     sentence = ' '.join(words) #join is the inverse of split. It takes a list of strings and concatenates the elements.
     #print(sentence)
     print(day, '    ', words)
-    
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+fhand = open('mbox-short.txt')
+for line in fhand:
+    words = line.split()
+    #print('Debug:', words)
+    if len(words) == 0: continue
+    if words[0] != 'From': continue
+    print(words[2])
+
+        
     
