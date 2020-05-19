@@ -31,5 +31,34 @@ for line in fhand:
     #print('Debug:', words)
     if len(words) == 0 or words[0] != 'From': continue
     print(words[2])
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+'''Write a program to open the file romeo.txt and read it line by line.
+For each line, split the line into a list of words using the split function.
+For each word, check to see if the word is already in a list. If the word is
+not in the list, add it to the list. When the program completes, sort and
+print the resulting words in alphabetical order.'''
+fhand = open('romeo.txt')
+ans = []
+for line in fhand:
+    line = line.split()
+    #print(line)
+    for word in line:
+        #print(word)
+        if word in ans: continue
+        ans.append(word)
+ans.sort()
+print(ans)
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+'''Write a program to read through the mail box data and when you find
+line that startswith “From”, you will split the line into words using the
+split function. Weare interested in who sent the message, which is the
+second word on the From line.'''
+
+for line in open('mbox-short.txt'):
+    if not line.startswith('From'): continue
+    line = line.split()
+    print(line.pop(1))
+#
+
         
     
