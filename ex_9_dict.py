@@ -25,3 +25,12 @@ for line in open('words.txt'):
         else:
             dict1[word] = dict1[word] + 1
 print(dict1)
+#!!!!!!!!!!!!!!!!!!!
+dict2 ={}
+for line in open('words.txt'):
+    line = line.rstrip()
+    line = line.split()
+    for word in line:
+        dict2[word] = dict2.get(word, 0) + 1
+print(dict2)
+
