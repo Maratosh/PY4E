@@ -124,3 +124,41 @@ for i in ans:
         count = ans[i]
         winer = i
 print(winer, count)
+'''Exercise 5: This program records the domain name (instead of the address)
+where the message was sent from instead of who the mail came from
+(i.e., the whole email address). At the end of the program,
+print out the contents of your dictionary.'''
+
+import string
+string.punctuation
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened: ', fname)
+    exit()
+ans = {}
+lst = []
+for line in fhand:
+    line = line.rstrip()
+    #line = line.translate(line.maketrans('', '', string.punctuation))
+    line = line.lower()
+    if not line.startswith('from'): continue
+    words = line.split()
+    if len(words) < 3: continue
+    domain = words[1]
+    domain = domain.split('@')
+    if domain[1] not in ans:
+        ans[domain[1]] = 1
+    else:
+        ans[domain[1]] += 1
+    
+print(ans)
+count = 0
+
+for i in ans:
+    if ans[i] > count:
+        count = ans[i]
+        winer = i
+print(winer, count)
