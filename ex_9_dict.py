@@ -87,4 +87,40 @@ for line in fhand:
     else:
         ans[words[2]] +=1
 print(ans)        
+'''Exercise 4: Add code to the above program to figure out who has
+the most messages in the file. After all the data has been read
+and the dictionary has been created, look through the dictionary
+using a maximum loop (see Chapter 5: Maximum and minimum loops)
+to find who has the most messages and print how many messages
+the person has.'''
 
+import string
+string.punctuation
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened: ', fname)
+    exit()
+ans = {}
+lst = []
+for line in fhand:
+    line = line.rstrip()
+    #line = line.translate(line.maketrans('', '', string.punctuation))
+    line = line.lower()
+    if not line.startswith('from'): continue
+    words = line.split()
+    if len(words) < 3: continue
+    if words[1] not in ans:
+        ans[words[1]] = 1
+    else:
+        ans[words[1]] += 1
+print(ans)
+count = 0
+
+for i in ans:
+    if ans[i] > count:
+        count = ans[i]
+        winer = i
+print(winer, count)
