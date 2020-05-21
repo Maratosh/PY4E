@@ -33,4 +33,27 @@ for line in open('words.txt'):
     for word in line:
         dict2[word] = dict2.get(word, 0) + 1
 print(dict2)
+#Advanced text parsing!!!!!!!!!!!!!!!!!!
+import string
+
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened: ', fname)
+    exit()
+ans = {}
+
+for line in fhand:
+    line = line.rstrip()
+    line = line.translate(line.maketrans('', '', string.punctuation))
+    line = line.lower()
+    words = line.split()
+    for word in words:
+        if word not in ans:
+            ans[word] = 1
+        else:
+            ans[word] += 1
+print(ans)
 
