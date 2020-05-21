@@ -21,4 +21,24 @@ def count():
     print(dict_w) # done!
 
     
+   ##################################     
+
+fhand = open('words.txt')
+counts = {}
+for line in fhand:
+    #print(line) #  Writing programs or programming is a very creative
+    words = line.split()
+    #print(words) # ['Writing', 'programs', 'or', 'programming', 'is', 'a', 'very', 'creative']
+    for word in words:
+        #print(word) #  Writing
+        counts[word] = counts.get(word, 0) + 1 ''' The dictionary counts is
+                                                done there'''
         
+bigcount = None
+bigword = None
+for word,count in counts.items():
+    if bigcount is None or count > bigcount:
+        bigword = word
+        bigcount = count
+print(bigword, bigcount)
+    
