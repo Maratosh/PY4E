@@ -1,3 +1,23 @@
+##*******************************************************************************
+dict2 ={}
+for line in open('words.txt'):
+    line = line.rstrip()
+    line = line.split()
+    for word in line:
+        dict2[word] = dict2.get(word, 0) + 1
+print(dict2)
+
+bigcount = None
+bigword = None
+for word, count in dict2.items():
+    #print(word, count)
+    if bigcount is None or count > bigcount:
+        bigword = word
+        bigcount = count
+print(bigword, bigcount)
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 '''Write a program that reads the words in words.txt and stores them as
 keys in a dictionary. It doesn’t matter what the values are. Then you can
 use the in operator as a fast way to check whether a string is in the
