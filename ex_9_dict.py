@@ -57,3 +57,34 @@ for line in fhand:
             ans[word] += 1
 print(ans)
 
+'''Exercise 2: Write a program that categorizes each mail message by
+which day of the week the commit was done. To do this look for lines
+that start with “From”, then look for the third word and keep a running
+count of each of the days of the week. At the end of the program print
+out the contents of your dictionary (order does not matter)'''
+
+import string
+string.punctuation
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened: ', fname)
+    exit()
+ans = {}
+for line in fhand:
+    line = line.rstrip()
+    line = line.translate(line.maketrans('', '', string.punctuation))
+    line = line.lower()
+    if not line.startswith('from'): continue
+    #print(line)
+    words = line.split()
+    if len(words) < 3 : continue
+    #print(words)
+    if words[2] not in ans:
+        ans[words[2]] = 1
+    else:
+        ans[words[2]] +=1
+print(ans)        
+
