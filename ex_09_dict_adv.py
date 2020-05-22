@@ -31,8 +31,7 @@ for line in fhand:
     #print(words) # ['Writing', 'programs', 'or', 'programming', 'is', 'a', 'very', 'creative']
     for word in words:
         #print(word) #  Writing
-        counts[word] = counts.get(word, 0) + 1 ''' The dictionary counts is
-                                                done there'''
+        counts[word] = counts.get(word, 0) + 1 #''' The dictionary counts is done there'''
         
 bigcount = None
 bigword = None
