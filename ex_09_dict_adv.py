@@ -1,3 +1,4 @@
+#line = line.translate(line.maketrans('', '', string.punctuation))
 '''To count some items from mail-box'''
 
 def count():
