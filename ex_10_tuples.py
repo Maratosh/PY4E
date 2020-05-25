@@ -6,11 +6,9 @@ the list of tuples using the Python built-in sort, and
 #!Undecorate
 by extracting the sorted elements of the sequence'''
 
-txt = 'but soft what light in yonder window breaks'
-words = txt.split()
-#print(words)
-t = [(len(word), word) for word in words]
-t.sort(reverse=True)
-for l, w in t:
+txt = 'but soft  what light in yonder window breaks'
+lst = [(len(word), word) for word in txt.split()]
+lst.sort(reverse=True)
+for l, w in lst:
     print(w, l)
 
