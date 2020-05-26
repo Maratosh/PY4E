@@ -133,4 +133,25 @@ Find text samples from several different languages and see
 how letter frequency varies between languages. Compare your
 results with the tables at
 https://wikipedia.org/wiki/Letter_frequencies.'''
+
 import string
+
+fhand = open('romeo-full.txt')
+lst = []
+counts = {}
+for line in fhand:
+    line = line.rstrip()
+    line = line.lower()
+    line = line.translate(str.maketrans('', '', string.punctuation))
+    line = line.replace(' ', '') #to remove spaces between words
+    for ch in line:
+        if not ch.isnumeric(): # to remove numeric simbols
+            lst.append(ch)
+for ch in lst:
+    counts[ch] = counts.get(ch, 0) +1
+lst = [(c, ch) for ch, c in counts.items()]
+lst.sort(reverse=True)
+print('The most common letter')
+print('Letter  Count')   
+for c, ch in lst:
+    print('{}       {}'.format(ch, c))
