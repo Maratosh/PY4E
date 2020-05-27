@@ -65,7 +65,19 @@ for line in fhand:                                      # non-blank characters (
     if len(x) > 0:
         print(x)
 
+############################################
+# Combining searching and extracting
 
+# Search for lines that start with 'X' followed by any non
+# whitespace characters and ':'
+# followed by a space and any number.
+# The number can include a decimal.
+import re
+fhand = open('mbox-short.txt')           # we want lines that start with X-, followed by zero 
+for line in fhand:                       # or more characters (.*), followed by a colon (:)                    
+    line = line.rstrip()                 # and then a space. After the space we are looking for  
+    if re.search('X-.*: [0-9.]+', line): # one or more characters that are either a digit (0-9)  
+        print(line)                      # or a period [0-9.]+. 
 
 
 
