@@ -78,6 +78,48 @@ for line in fhand:                       # or more characters (.*), followed by 
     line = line.rstrip()                 # and then a space. After the space we are looking for  
     if re.search('X-.*: [0-9.]+', line): # one or more characters that are either a digit (0-9)  
         print(line)                      # or a period [0-9.]+. 
+###############################################
+#!/usr/bin/python3
+# Combining searching and extracting
 
+# Search for lines that start with 'X' followed by any
+# non whitespace characters and ':' followed by a space
+# and any number. The number can include a decimal.
+# Then print the number if it is greater than zero.
+import re                                       # Instead of calling search(), we add parentheses around the part
+fhand = open('mbox-short.txt')                  # of the regular expression that represents the floating-point
+for line in fhand:                              # number to indicate we only want findall() to give us back the
+    line = line.rstrip()                        #  floating-point number portion of the matching string.  
+    x = re.findall('^X\S*: ([0-9.]+)', line)    #
+    if len(x) > 0:                              #
+        print(x)
+###########################################
+#!/usr/bin/python3
+# Combining searching and extracting
+
+# Search for lines that start with 'Details: rev='
+# followed by numbers and '.'
+# Then print the number if it is greater than zero
+import re
+fhand = open('mbox-short.txt')                          # Translating our regular expression, we are looking
+for line in fhand:                                      # for lines that start with Details:, followed by any
+    line = line.rstrip()                                # number of characters (.*), followed by rev=, and then
+    x = re.findall('^Details:.*rev=([0-9.]+)', line)    # by one or more digits. We want to find lines that match
+    if len(x) > 0:                                      # the entire expression but we only want to extract the integer
+        print(x)                                        # number at the end of the line, so we surround [0-9]+ with parentheses.
+
+#################################################
+#!/usr/bin/python3
+# Search for lines that start with From and a character
+# followed by a two digit number between 00 and 99 followed by ':'
+# Then print the number if it is greater than zero
+import re
+
+fhand = open('mbox-short.txt')                      # The translation of this regular expression is that we are looking 
+for line in fhand:                                  # for lines that start with From (note the space), followed by any 
+    line = line.rstrip()                            # number of characters (.*), followed by a space, followed by two 
+    x = re.findall('^From .* ([0-9][0-9]):', line)  # digits [0-9][0-9], followed by a colon character. This is the 
+    if len(x) > 0:                                  # definition of the kinds of lines we are looking for.
+        print(x)                                    #
 
 
