@@ -122,4 +122,18 @@ for line in fhand:                                  # for lines that start with 
     if len(x) > 0:                                  # definition of the kinds of lines we are looking for.
         print(x)                                    #
 
+################################
+'''Exercise 1: Write a simple program to simulate the operation of the grep
+command on Unix. Ask the user to enter a regular expression and count the
+number of lines that matched the regular expression:'''
+#!/usp/bin/python3
+import re
+rex = input('Enter a regular expression: ')
+i = 0
+fhand = open('mbox.txt')
+for line in fhand:
+    line = line.rstrip()
+    if re.search(rex, line):
+        print(line)
+    
 
