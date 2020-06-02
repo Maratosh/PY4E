@@ -166,3 +166,13 @@ for line in fhand:
 print(int(sum(lst)/len(lst)))
     
 
+##########################
+import re
+from urllib.request import urlopen
+with urlopen('https://www.python-course.eu/simpsons_phone_book.txt') as fh:
+    for line in fh:
+        line = line.decode('utf-8').rstrip()
+        #print(line)
+        if re.search(r'J.*N', line):
+            print(line)
+        
