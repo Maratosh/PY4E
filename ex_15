@@ -10,5 +10,6 @@ cur.execute('CREATE TABLE Tracks (title TEXT, plays INTEGER)')
 
 conn.close()
 
+# put some data into that table using the SQL INSERT operation
 
 
