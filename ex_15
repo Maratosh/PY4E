@@ -12,4 +12,22 @@ conn.close()
 
 # put some data into that table using the SQL INSERT operation
 
+#!/usr/bin/python3
+import sqlite3
+
+conn = sqlite3.connect('music.sqlite')
+cur = conn.cursor()
+
+cur.execute('INSERT INTO Tracks (title, plays) VALUES (?, ?)', ('Thunder', 20))
+cur.execute('INSERT INTO Tracks (title, plays) VALUES (?, ?)', ('My way', 15))
+
+print('Tracks:')
+
+cur.execute('SELECT title, plays FROM Tracks')  #   Then we use the SELECT command to retrieve the rows we just inserted from the table.  
+for row in cur:                                 # On the SELECT command, we indicate which columns we would like (title, plays) and 
+    print(row)                                  # indicate which table we want to retrieve the data from.
+#cur.execute('DELETE FROM Tracks WHERE plays <100')
+conn.commit()
+cur.close()                         #First we INSERT two rows into our table and use commit() to force the data to be written to the database file.
+
 
