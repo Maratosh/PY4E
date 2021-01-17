@@ -28,3 +28,20 @@ def fac(x):
     else:
         return x * fac(x-1)
 print(fac(4))
+
+
+#class Orange:
+#  
+#  def __init__ (self, weight, color, mold):
+#      """ all weights are in oz"""
+#      self.weight = weight
+#      self.color = color
+
+class Orange():
+    def __init__(self):
+        "sfsdf" 
+        self.weight = 6
+        self.color = 'orange'
+        self.mold = 0
+    def rot(self, days, temp):
+        self.mold = days*(temp* .1)
