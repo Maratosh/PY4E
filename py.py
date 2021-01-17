@@ -45,3 +45,27 @@ class Orange():
         self.mold = 0
     def rot(self, days, temp):
         self.mold = days*(temp* .1)
+#################################
+#########INHERITANCE#############
+#################################
+lass Adult():
+    def __init__(self, name, height, weight, eye):
+        "comment"
+        self.name = name
+        self.height = height
+        self.weight = weight
+        self.eye = eye
+
+    def print_name(self):
+           print(self.name)
+tom = Adult("Tom", 6, 100, "green")
+
+tom.print_name()
+
+class Kid(Adult):
+    def print_cartoon(self, fav_cartoon):
+        print("{}'s favorite cartoon id {}".format(self.name, fav_cartoon))
+child = Kid("Lauren", 3, 50, "blue")
+child.print_name()
+child.print_cartoon('TEST')    
+####################################################3333333
