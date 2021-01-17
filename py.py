@@ -68,4 +68,21 @@ class Kid(Adult):
 child = Kid("Lauren", 3, 50, "blue")
 child.print_name()
 child.print_cartoon('TEST')    
-####################################################3333333
+####################################################
+#################################
+#########Composition#############
+#################################
+
+class Dog():
+    def __init__(self, name, breed, owner):
+        self.name = name
+        self.breed = breed
+        self.owner = owner
+class Person():
+    def __init__(self, name):
+        self.name = name
+
+mik = Person("Mik Jagger")
+dog = Dog("Stanley", "Bulldog", mik)
+
+print(dog.owner.name)
